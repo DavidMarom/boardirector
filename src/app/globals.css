@@ -4,6 +4,8 @@
 
 :root {
   --foreground-rgb: #eeeeee;
+  --yellow: #ffd835;
+  --purple: #6e56f8;
 }
 
 * {
