@@ -2,10 +2,12 @@
 
 import React from 'react';
 
-export const RecipesPage = () => {
+const RecipesPage = () => {
     return (
         <>
             <h1>Recipes</h1>
         </>
     );
 }
+
+export default RecipesPage;

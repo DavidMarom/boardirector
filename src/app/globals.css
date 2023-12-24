@@ -28,3 +28,10 @@ h2 {
 h3 {
   font-size: 1.25rem;
 }
+
+.layout{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}

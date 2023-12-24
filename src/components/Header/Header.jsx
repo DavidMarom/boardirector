@@ -1,5 +1,6 @@
 "use client";
 import React from 'react'
+
 import { Container, FirstRow, SecondRow } from "./Header.style"
 import Link from "next/link"
 import PropTypes from "prop-types"
