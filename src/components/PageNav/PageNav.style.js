@@ -14,5 +14,4 @@ export const Button = styled.button`
   padding-right: 1rem;
   padding-left: 1rem;
   border-bottom: ${({ active }) => active ? '3px solid #6e56f8' : '3px solid #ffffff'};
-
 `;
