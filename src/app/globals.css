@@ -45,12 +45,14 @@ h3 {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
+  column-gap: 40px;
+  row-gap: 20px;
   padding-right: 110px;
 }
 
-.grid-item {
-  background-color: lightblue;
-  padding: 10px;
-  text-align: center;
+.filter-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

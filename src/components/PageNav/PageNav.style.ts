@@ -11,7 +11,7 @@ export const Container = styled.div`
   margin-bottom: 2rem;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<{ active: boolean }>`
   padding-right: 1rem;
   padding-left: 1rem;
   border-bottom: ${({ active }) => active ? '3px solid var(--primary);' : '3px solid #ffffff'};

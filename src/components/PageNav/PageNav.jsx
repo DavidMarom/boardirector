@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
-import { Container, Button } from "./PageNav.style"
+import { Container, Button } from "./PageNav.style.ts"
+import PropTypes from "prop-types"
 
 export default function PageNav() {
     const router = useRouter();
@@ -26,4 +27,9 @@ export default function PageNav() {
                 Favorites</Button>
         </Container >
     )
+}
+
+Button.propTypes = {
+    active: PropTypes.bool,
+    onClick: PropTypes.func,
 }

@@ -6,8 +6,16 @@ const FavoritesPage = () => {
 
     return (
         <div>
-            <h1>Favorites</h1>
-
+            <div className="grid-container">
+                <div className="grid-item">aaa</div>
+                <div className="grid-item">aaa</div>
+                <div className="grid-item">aaa</div>
+                <div className="grid-item">aaa</div>
+                <div className="grid-item">aaa</div>
+                <div className="grid-item">aaa</div>
+                <div className="grid-item">aaa</div>
+                <div className="grid-item">aaa</div>
+            </div>
         </div>
     );
 }
