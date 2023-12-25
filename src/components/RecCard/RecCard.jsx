@@ -4,11 +4,10 @@ import { Container, InfoContainer } from "./RecCard.style"
 import PropTypes from "prop-types"
 import { Image } from 'next/image';
 
-export default function RecCard({ data }) {
-    const { key, idMeal, strMeal, strCategory, strMealThumb, strInstructions, readMore } = data;
-    if (!data) return (<></>)
+export default function RecCard({data}) {
+    const { idMeal, strMeal, strCategory, strMealThumb, strInstructions, readMore } = data;
     return (
-        <Container key={key}>
+        <Container>
             <img src={strMealThumb} alt={strMeal} width={300} height={300} />
             <InfoContainer>
                 <h3>{strMeal}</h3>
@@ -23,5 +22,4 @@ export default function RecCard({ data }) {
 
 RecCard.propTypes = {
     data: PropTypes.object,
-    key: PropTypes.number,
 }

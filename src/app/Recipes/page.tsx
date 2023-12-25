@@ -17,7 +17,7 @@ const RecipesPage = () => {
     return (
         <>
             <div className="grid-container">
-                {recipes.map((item, index) => <RecCard key={index} data={item} />)}
+                {recipes.map((item, index) => <div key={index}><RecCard data={item} /></div>)}
             </div>
         </>
     );
