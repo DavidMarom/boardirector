@@ -1,15 +1,23 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RecCard } from '@/components';
-import { meal } from "./res"
+import { getRecipes } from '@/services/recipes';
 
-const data = meal;
 const RecipesPage = () => {
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+        getRecipes().then((res) => {
+            setRecipes(res.meals);
+        })
+    }, [])
+
+
     return (
         <>
             <div className="grid-container">
-                {data.map((item, index) => <RecCard key={index} data={item} />)}
+                {recipes.map((item, index) => <RecCard key={index} data={item} />)}
             </div>
         </>
     );

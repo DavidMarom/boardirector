@@ -6,9 +6,15 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  height: 250px;
+  height: 300px;
   border: 1px solid #ccc;
   border-radius: 15px;
   overflow: hidden;
 `;
 
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 10px;
+`;
