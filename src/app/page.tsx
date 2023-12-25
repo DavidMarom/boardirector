@@ -1,9 +1,9 @@
 "use client"
-import Image from 'next/image'
-import { Header } from '@/components'
-
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
-  return (
-<></>  )
+  const router = useRouter();
+
+  router.push('/Recipes');
+  return (<></>)
 }

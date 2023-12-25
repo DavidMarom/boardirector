@@ -10,12 +10,13 @@ export default function RootLayout({ children }: {
 }) {
   return (
     <html lang="en">
-      <div className="layout">
+      <body className={inter.className}>
+        <div className="layout">
 
-        <body className={inter.className}>
           <Header />
-          {children}</body>
-      </div>
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
