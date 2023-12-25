@@ -6,11 +6,12 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 0px;
 `;
 
 export const FirstRow = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  margin-bottom: 1rem;
   `;

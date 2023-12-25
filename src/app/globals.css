@@ -5,7 +5,7 @@
 :root {
   --foreground-rgb: #eeeeee;
   --yellow: #ffd835;
-  --purple: #6e56f8;
+  --primary: #6e56f8;
 }
 
 * {
@@ -29,9 +29,28 @@ h3 {
   font-size: 1.25rem;
 }
 
-.layout{
+.layout {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.main-title {
+  margin-bottom: 1rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  padding-right: 110px;
+}
+
+.grid-item {
+  background-color: lightblue;
+  padding: 10px;
+  text-align: center;
 }

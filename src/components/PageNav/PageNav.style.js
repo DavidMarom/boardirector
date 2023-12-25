@@ -7,11 +7,12 @@ export const Container = styled.div`
   justify-content: space-start;
   width: fit-content;
   border-bottom: 1px solid #e6e6e6;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `;
 
 export const Button = styled.button`
   padding-right: 1rem;
   padding-left: 1rem;
-  border-bottom: ${({ active }) => active ? '3px solid #6e56f8' : '3px solid #ffffff'};
+  border-bottom: ${({ active }) => active ? '3px solid var(--primary);' : '3px solid #ffffff'};
 `;
