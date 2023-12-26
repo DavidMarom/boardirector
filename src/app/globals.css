@@ -6,6 +6,7 @@
   --foreground-rgb: #eeeeee;
   --yellow: #ffd835;
   --primary: #6e56f8;
+  --dark-grey: #222222;
 }
 
 * {
@@ -18,15 +19,27 @@ body {
 
 h1 {
   font-size: 2rem;
+  color: var(--dark-grey);
 }
 
 h2 {
-  font-size: 1.5rem;
-  color: black;
+  font-size: 1rem;
+  color: var(--dark-grey);
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  color: var(--dark-grey);
+}
+
+h4 {
+  font-size: .9rem;
+  color: var(--dark-grey);
+}
+
+p{
+  font-size: .7rem;
+  color: var(--dark-grey);
 }
 
 .layout {
@@ -44,7 +57,7 @@ h3 {
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   column-gap: 40px;
   row-gap: 20px;
   padding-right: 70px;
@@ -55,4 +68,19 @@ h3 {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.col-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
 }
