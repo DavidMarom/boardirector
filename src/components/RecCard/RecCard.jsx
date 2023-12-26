@@ -19,8 +19,6 @@ export default function RecCard({ data }) {
         width: 'fit-content',
     };
 
-    console.log(idMeal );
-
     return (
         <Container>
             <ImageContainer><img src={strMealThumb || ''} alt={strMeal} /></ImageContainer>

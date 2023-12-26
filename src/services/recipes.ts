@@ -40,8 +40,7 @@ export function getAllCategories() {
 }
 
 export function getRecipesByCategory(category: string) {
-    return http.get(`/filter.php?c=${category}`)
-        .then((response: any) => { return response.data })
-        .catch((error: any) => error)
+    return http.get(`/filter.php?c=${category}`).then((response: any) => response.data.meals.map((item: any) => item.idMeal)
+    )
 }
 

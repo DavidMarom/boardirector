@@ -1,20 +1,31 @@
 "use client";
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, FirstRow } from "./Header.style"
 import { PageNav } from "@/components"
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import useRecipesStore from '@/store/recipes';
-
+import { CategoryType } from '@/utils/types';
+import { getFromStorage } from '@/utils/utils';
+import { getAllCategories } from '@/services/recipes';
+import useRecipesStore  from '@/store/recipes'
 
 export default function Header() {
+    const [categories, setCategories] = useState([]);
     const [selectedValue, setSelectedValue] = useState('');
-    const categories = useRecipesStore((state) => state.categories);
 
-    const handleChange = (event) => {
+    const setSelectedCategory = useRecipesStore((state) => state.setSelectedCategory)
+
+    useEffect(() => {
+        getAllCategories().then((res: any) => { setCategories(res.categories.map((category: CategoryType) => category.strCategory)) });
+    }, [])
+
+    const handleChange = (event: any) => {
         setSelectedValue(event.target.value);
-        
+        setSelectedCategory(event.target.value);
+
+
+
     };
 
     return (
@@ -40,8 +51,4 @@ export default function Header() {
             <PageNav />
         </Container>
     )
-}
-
-Header.propTypes = {
-
 }
