@@ -11,7 +11,7 @@ export default function PageNav() {
         <Container>
 
             <Button
-                active={page === 1}
+                active={page === 1 ? 'true' : 'false'}
                 onClick={() => {
                     setPage(1)
                     router.push('/Recipes')
@@ -19,7 +19,7 @@ export default function PageNav() {
                 Recipes</Button>
 
             <Button
-                active={page === 2}
+                active={page === 2 ? 'true' : 'false'}
                 onClick={() => {
                     setPage(2);
                     router.push('/Favorites')
@@ -30,6 +30,6 @@ export default function PageNav() {
 }
 
 Button.propTypes = {
-    active: PropTypes.bool,
+    active: PropTypes.string,
     onClick: PropTypes.func,
 }
