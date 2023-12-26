@@ -5,7 +5,8 @@ import PropTypes from "prop-types"
 import useRecipesStore from "@/store/recipes.js"
 
 export default function Fav({ data }) {
-    const setFavorites = useRecipesStore(state => state.setFavRecipe)
+    const setFavorites =        useRecipesStore((state) => state.setFavorites)
+
     const favorites = useRecipesStore(state => state.favorites)
 
 

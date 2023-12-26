@@ -10,7 +10,7 @@ const useRecipesStore = create((set) => ({
     categories: [],
     setCategories: (categories) => set((state) => ({ categories })),
     
-    favorites: [],
+    favorites: [234,324],
     setFavorites: (favorites) => set((state) => ({ favorites })),
 }));
 
