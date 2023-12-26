@@ -9,3 +9,4 @@ export const getFromStorage = (key: string) => {
 export const dataExpired = () => {
     return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 10000
 }
+

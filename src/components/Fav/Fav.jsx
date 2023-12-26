@@ -7,9 +7,7 @@ export default function Fav() {
     const [page, setPage] = useState(1);
     return (
         <Container>
-
             <img src="/icons/star-full.svg" alt="star" />
-
         </Container >
     )
 }

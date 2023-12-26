@@ -17,15 +17,32 @@ export const ImageContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  height: 170px;
+  height: 160px;
   overflow: hidden;
+`;
+
+export const TitleContainer = styled.div`
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: .9rem;
+`;
+
+export const TextContainer = styled.div`
+  width: 100%;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: .7rem;
+  height: 37px;
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding: 10px;
   width: 100%;
-  height: 130px;
+  height: 140px;
 `;

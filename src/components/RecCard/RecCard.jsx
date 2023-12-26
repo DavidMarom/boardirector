@@ -1,32 +1,38 @@
 "use client";
 import React from 'react'
-import { Container, InfoContainer, ImageContainer } from "./RecCard.style"
+import { Container, InfoContainer, ImageContainer, TextContainer, TitleContainer } from "./RecCard.style"
 import PropTypes from "prop-types"
 import { Fav } from '@/components';
-import { Image } from 'next/image';
+import Button from '@mui/material/Button';
 
 export default function RecCard({ data }) {
     const { strMeal, strMealThumb, strCategory, strInstructions, idMeal } = data;
+    const style = {
+        color: '#ffffff',
+        backgroundColor: 'var(--primary)',
+        borderRadius: '3px',
+        fontSize: '.5rem',
+        textTransform: 'none',
+        height: '.9rem',
+        width: 'fit-content',
+    };
 
     return (
         <Container>
-            <ImageContainer>
-                <img src={strMealThumb || ''} alt={strMeal} />
-            </ImageContainer>
+            <ImageContainer><img src={strMealThumb || ''} alt={strMeal} /></ImageContainer>
             <InfoContainer>
-                <div className="row-between">
-                    <h3>{strMeal}</h3>
-                    <Fav />
+                <div>
+                    <div className="row-between">
+                        <TitleContainer>{strMeal}</TitleContainer>
+                        <Fav />
+                    </div>
+                    <h4>{strCategory}</h4>
                 </div>
-                <h4>{strCategory}</h4>
-                <p>{strInstructions}</p>
-                <button onClick={() => readMore(idMeal)}>Read More</button>
+                <TextContainer>{strInstructions}</TextContainer>
+                <Button variant="contained" style={style}>Read more</Button>
             </InfoContainer>
-
         </Container>
     )
-
-
 }
 
 RecCard.propTypes = {

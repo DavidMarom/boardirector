@@ -20,7 +20,6 @@ const RecipesPage = () => {
                 setRecipes(data.meals);
             });
         }
-
     }, []
     );
 
