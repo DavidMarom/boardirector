@@ -9,11 +9,19 @@ const RecipesPage = () => {
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        getRecipes().then((res) => {
-            setRecipes(res.meals);
-        })
-    }, [])
+        if (localStorage.getItem("recipes") != null) { setRecipes(JSON.parse(localStorage.getItem("recipes") ?? "")) }
+        const lastFetch = localStorage.getItem('lastFetch');
+        if (lastFetch === null) { localStorage.setItem("lastFetch", Date.now().toString()) }
+        if (Date.now() - parseInt(lastFetch ?? "") > 60000) {
+            getRecipes().then((data) => {
+                localStorage.setItem("recipes", JSON.stringify(data.meals));
+                localStorage.setItem("lastFetch", Date.now().toString());
+                setRecipes(data.meals);
+            });
+        }
 
+    }, []
+    );
 
     return (
         <>

@@ -8,7 +8,7 @@ export default function RecCard({ data }) {
     const { strMeal, strMealThumb, strCategory, strInstructions, idMeal } = data;
     return (
         <Container>
-            <Image src={strMealThumb} alt={strMeal} />
+            <img src={strMealThumb} alt={strMeal} />
             <InfoContainer>
                 <h3>{strMeal}</h3>
                 <h4>{strCategory}</h4>
