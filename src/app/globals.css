@@ -6,7 +6,8 @@
   --foreground-rgb: #eeeeee;
   --yellow: #ffd835;
   --primary: #6e56f8;
-  --dark-grey: #222222;
+  --dark-grey: #3f3f3f;
+  --light-grey: #959595;
 }
 
 * {
@@ -28,13 +29,13 @@ h2 {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: .9rem;
   color: var(--dark-grey);
 }
 
 h4 {
   font-size: .9rem;
-  color: var(--dark-grey);
+  color: var(--light-grey);
 }
 
 p{
@@ -57,7 +58,7 @@ p{
 
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   column-gap: 40px;
   row-gap: 20px;
   padding-right: 70px;

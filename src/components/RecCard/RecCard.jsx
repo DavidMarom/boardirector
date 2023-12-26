@@ -1,7 +1,8 @@
 "use client";
 import React from 'react'
-import { Container, InfoContainer } from "./RecCard.style"
+import { Container, InfoContainer, ImageContainer } from "./RecCard.style"
 import PropTypes from "prop-types"
+import { Fav } from '@/components';
 import { Image } from 'next/image';
 
 export default function RecCard({ data }) {
@@ -9,12 +10,13 @@ export default function RecCard({ data }) {
 
     return (
         <Container>
-            <img src={strMealThumb || ''} alt={strMeal} />
+            <ImageContainer>
+                <img src={strMealThumb || ''} alt={strMeal} />
+            </ImageContainer>
             <InfoContainer>
                 <div className="row-between">
-                <h3>{strMeal}</h3>
-                <div className='col-start'><img src="/icons/star-full.svg" alt="star" width={20} height={20} /></div>
-
+                    <h3>{strMeal}</h3>
+                    <Fav />
                 </div>
                 <h4>{strCategory}</h4>
                 <p>{strInstructions}</p>
