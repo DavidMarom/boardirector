@@ -20,13 +20,13 @@ const RecipesPage = () => {
                 setToStorage("recipes", data);
                 setToStorage("lastFetch", Date.now());
                 setRecipes(data);
-                setSortedRecipes(getFromStorage("recipes").slice(page * 10, (page * 10) + 16));
+                setSortedRecipes(data.slice(page * 10, (page * 10) + 16));
             });
         }
     }, []
     );
 
-    useEffect(() => { setSortedRecipes(getFromStorage("recipes").slice(page * 10, (page * 10) + 16)) }, [page]);
+    useEffect(() => { setSortedRecipes(recipes.slice(page * 10, (page * 10) + 16)) }, [page]);
 
 
     return (
