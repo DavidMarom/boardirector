@@ -5,12 +5,16 @@ import { PageNav } from "@/components"
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import useRecipesStore from '@/store/recipes';
+
 
 export default function Header() {
     const [selectedValue, setSelectedValue] = useState('');
+    const categories = useRecipesStore((state) => state.categories);
 
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
+        
     };
 
     return (
@@ -26,9 +30,11 @@ export default function Header() {
                     sx={{ height: 40 }}
                 >
                     <MenuItem value="" disabled>Select an option</MenuItem>
-                    <MenuItem value="option1">Option 1</MenuItem>
-                    <MenuItem value="option2">Option 2</MenuItem>
-                    <MenuItem value="option3">Option 3</MenuItem>
+
+                    {categories.map((category, index) => (
+                        <MenuItem key={index} value={category}>{category}</MenuItem>
+                    ))}
+
                 </Select>
             </FormControl>
             <PageNav />

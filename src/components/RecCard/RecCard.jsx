@@ -7,6 +7,7 @@ import { shortText } from '@/utils/utils';
 import Button from '@mui/material/Button';
 
 export default function RecCard({ data }) {
+    if (data === undefined || data === null) return <></>;
     const { strMeal, strMealThumb, strCategory, strInstructions, idMeal } = data;
     const style = {
         color: '#ffffff',
@@ -17,6 +18,8 @@ export default function RecCard({ data }) {
         height: '.9rem',
         width: 'fit-content',
     };
+
+    console.log(idMeal );
 
     return (
         <Container>

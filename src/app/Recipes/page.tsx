@@ -2,25 +2,23 @@
 
 import React, { useEffect, useState } from 'react';
 import { RecCard } from '@/components';
-import { getRecipes } from '@/services/recipes';
+import { getRecipesByCategory, getAllRecipes } from '@/services/recipes';
 import { Recipe } from '@/utils/types';
 import { setToStorage, getFromStorage, dataExpired } from '@/utils/utils';
-import useRecipesStore from '@/store/recipes';
 
 const RecipesPage = () => {
     const [recipes, setRecipes] = useState([]);
-    const categories = useRecipesStore((state) => state.categories);
-    console.log(categories);
 
     useEffect(() => {
         if (getFromStorage("recipes") != null) { setRecipes(getFromStorage("recipes") ?? "") }
         const lastFetch = getFromStorage('lastFetch');
         if (lastFetch === null) { setToStorage("lastFetch", Date.now()) }
         if (dataExpired() || getFromStorage("recipes") === null) {
-            getRecipes().then((data) => {
-                setToStorage("recipes", data.meals);
+            getAllRecipes().then((data) => {
+                console.log(333,data);
+                setToStorage("recipes", data);
                 setToStorage("lastFetch", Date.now());
-                setRecipes(data.meals);
+                setRecipes(data);
             });
         }
     }, []
@@ -29,7 +27,7 @@ const RecipesPage = () => {
     return (
         <>
             <div className="grid-container">
-                {recipes.map((item: Recipe, index) => <div key={index}><RecCard data={item} /></div>)}
+                {recipes && recipes.map((item: Recipe, index) => <div key={index}><RecCard data={item} /></div>)}
             </div>
         </>
     );
