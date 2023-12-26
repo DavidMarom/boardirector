@@ -5,26 +5,33 @@ import PropTypes from "prop-types"
 import useRecipesStore from "@/store/recipes.js"
 
 export default function Fav({ data }) {
-    const setFavorites =        useRecipesStore((state) => state.setFavorites)
-
+    const setFavorites = useRecipesStore((state) => state.setFavorites)
     const favorites = useRecipesStore(state => state.favorites)
-
-
+    const [isFavorite, setIsFavorite] = useState(false)
 
     const handleToggle = () => {
-        console.log(favorites)
         if (favorites.includes(data.idMeal)) {
             setFavorites(favorites.filter(fav => fav !== data.idMeal))
+            setIsFavorite(false)
         } else {
             setFavorites([...favorites, data.idMeal])
+            setIsFavorite(true)
         }
-
-
     }
+
+    useEffect(() => {
+        if (favorites.includes(data.idMeal)) {
+            setIsFavorite(true)
+        } else {
+            setIsFavorite(false)
+        }
+    }, [])
 
     return (
         <Container>
-            <img onClick={handleToggle} src="/icons/star-full.svg" alt="star" />
+            {isFavorite ?
+                <img onClick={handleToggle} src="/icons/star-full.svg" alt="star" /> :
+                <img onClick={handleToggle} src="/icons/star-blank.svg" alt="star" />}
         </Container >
     )
 }

@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const useRecipesStore = create((set) => ({
-    recipes: [],
+    recipes: ['aaa'],
     setRecipes: () => set((state) => ({ recipes: state })),
 
     selectedCategory: "",
@@ -10,8 +10,8 @@ const useRecipesStore = create((set) => ({
     categories: [],
     setCategories: (categories) => set((state) => ({ categories })),
     
-    favorites: [234,324],
-    setFavorites: (favorites) => set((state) => ({ favorites })),
+    favorites: [],
+    setFavorites: (favorites) => set(() => ({ favorites })),
 }));
 
 export default useRecipesStore;
