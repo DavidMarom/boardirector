@@ -1,6 +1,5 @@
 import http from '@/services/http';
 
-
 export function getAllRecipes() {
     const all = Promise.all([
         http.get(`/search.php?f=a`),

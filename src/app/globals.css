@@ -49,7 +49,7 @@ p{
   justify-content: flex-start;
   width: 100%;
   margin-left: 5%;
-  margin-right: 5%;
+  padding-right: 5%;
 }
 
 .main-title {
@@ -92,4 +92,8 @@ p{
   justify-content: flex-start;
   align-items: flex-start;
   height: 100%;
+}
+
+.margin-top-3rem{
+  margin-top: 3rem;
 }

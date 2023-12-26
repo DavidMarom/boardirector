@@ -3,16 +3,16 @@ export const setToStorage = (key: string, value: any) => {
 }
 
 export const getFromStorage = (key: string) => {
-    try{
-    return JSON.parse(localStorage.getItem(key) as string);
+    try {
+        return JSON.parse(localStorage.getItem(key) as string);
     }
-    catch{
+    catch {
         return null;
     }
 }
 
 export const dataExpired = () => {
-    return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 10000
+    return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 3000
 }
 
 export const shortText = (text: string, length: number) => {
