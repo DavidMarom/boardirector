@@ -26,7 +26,7 @@ export default function RecCard({ data }) {
                 <div>
                     <div className="row-between">
                         <TitleContainer>{strMeal}</TitleContainer>
-                        <Fav />
+                        <Fav data={data} />
                     </div>
                     <h4>{strCategory}</h4>
                 </div>
