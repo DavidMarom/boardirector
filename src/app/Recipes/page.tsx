@@ -4,18 +4,19 @@ import React, { useEffect, useState } from 'react';
 import { RecCard } from '@/components';
 import { getRecipes } from '@/services/recipes';
 import { Recipe } from '@/utils/types';
+import { setToStorage, getFromStorage } from '@/utils/utils';
 
 const RecipesPage = () => {
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        if (localStorage.getItem("recipes") != null) { setRecipes(JSON.parse(localStorage.getItem("recipes") ?? "")) }
-        const lastFetch = localStorage.getItem('lastFetch');
-        if (lastFetch === null) { localStorage.setItem("lastFetch", Date.now().toString()) }
-        if (Date.now() - parseInt(lastFetch ?? "") > 60000) {
+        if (getFromStorage("recipes") != null) { setRecipes(getFromStorage("recipes") ?? "") }
+        const lastFetch = getFromStorage('lastFetch');
+        if (lastFetch === null) { setToStorage("lastFetch", Date.now()) }
+        if (Date.now() - parseInt(lastFetch ?? "") > 1000 || getFromStorage("recipes") === null) {
             getRecipes().then((data) => {
-                localStorage.setItem("recipes", JSON.stringify(data.meals));
-                localStorage.setItem("lastFetch", Date.now().toString());
+                setToStorage("recipes", data.meals);
+                setToStorage("lastFetch", Date.now());
                 setRecipes(data.meals);
             });
         }
