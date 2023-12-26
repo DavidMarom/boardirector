@@ -5,9 +5,12 @@ import { RecCard } from '@/components';
 import { getRecipes } from '@/services/recipes';
 import { Recipe } from '@/utils/types';
 import { setToStorage, getFromStorage, dataExpired } from '@/utils/utils';
+import useRecipesStore from '@/store/recipes';
 
 const RecipesPage = () => {
     const [recipes, setRecipes] = useState([]);
+    const categories = useRecipesStore((state) => state.categories);
+    console.log(categories);
 
     useEffect(() => {
         if (getFromStorage("recipes") != null) { setRecipes(getFromStorage("recipes") ?? "") }

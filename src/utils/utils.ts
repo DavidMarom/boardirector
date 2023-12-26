@@ -10,3 +10,6 @@ export const dataExpired = () => {
     return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 10000
 }
 
+export const shortText = (text: string, length: number) => {
+    return text.length > length ? text.substring(0, length) + '...' : text;
+}

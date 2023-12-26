@@ -31,11 +31,11 @@ export const TitleContainer = styled.div`
 
 export const TextContainer = styled.div`
   width: 100%;
-  /* white-space: nowrap; */
+  white-space: pre;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: .7rem;
-  height: 37px;
+  font-size: .6rem;
+  height: 31px;
 `;
 
 export const InfoContainer = styled.div`

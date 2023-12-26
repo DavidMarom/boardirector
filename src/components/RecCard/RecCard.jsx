@@ -3,6 +3,7 @@ import React from 'react'
 import { Container, InfoContainer, ImageContainer, TextContainer, TitleContainer } from "./RecCard.style"
 import PropTypes from "prop-types"
 import { Fav } from '@/components';
+import { shortText } from '@/utils/utils';
 import Button from '@mui/material/Button';
 
 export default function RecCard({ data }) {
@@ -28,7 +29,7 @@ export default function RecCard({ data }) {
                     </div>
                     <h4>{strCategory}</h4>
                 </div>
-                <TextContainer>{strInstructions}</TextContainer>
+                <TextContainer>{shortText(strInstructions, 100)}</TextContainer>
                 <Button variant="contained" style={style}>Read more</Button>
             </InfoContainer>
         </Container>

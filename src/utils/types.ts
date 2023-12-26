@@ -54,3 +54,12 @@ export const RecipeSchema = z.object({
 });
 
 export type Recipe = z.infer<typeof RecipeSchema>;
+
+export const CategorySchema = z.object({
+    idCategory: z.string(),
+    strCategory: z.string(),
+    strCategoryThumb: z.string(),
+    strCategoryDescription: z.string(),
+});
+
+export type CategoryType = z.infer<typeof CategorySchema>;

@@ -5,3 +5,9 @@ export function getRecipes() {
         .then((response: any) => { return response.data })
         .catch((error: any) => error)
 }
+
+export function getAllCategories() {
+    return http.get(`/categories.php`)
+        .then((response: any) => { return response.data })
+        .catch((error: any) => error)
+}
