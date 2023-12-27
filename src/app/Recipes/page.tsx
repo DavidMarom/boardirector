@@ -13,7 +13,7 @@ const RecipesPage = () => {
     const [page, setPage] = useState(0);
     const itemsPerPage = 16;
     const selectedCategory = useRecipesStore((state) => state.selectedCategory);
-    const recToInject = useRecipesStore((state) => state.recToInject);
+    // const recToInject = useRecipesStore((state) => state.recToInject);
 
     function updateSortedRecipes(data: Array<RecipeType> | any) {
         setSortedRecipes(data.slice(page * itemsPerPage, (page * itemsPerPage) + itemsPerPage));
@@ -37,7 +37,7 @@ const RecipesPage = () => {
     useEffect(() => { setSortedRecipes(recipes.filter((item: RecipeType) => item?.strCategory === selectedCategory)) }, [selectedCategory]);
     useEffect(() => { updateSortedRecipes(recipes) }, [page]);
     useEffect(() => { updateSortedRecipes(recipes) }, [recipes]);
-    useEffect(() => { setRecipes([recToInject, ...recipes]) }, [recToInject]);
+    // useEffect(() => { setRecipes([recToInject, ...recipes]) }, [recToInject]);
 
     return (
         <>
