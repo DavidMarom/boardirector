@@ -12,7 +12,11 @@ export const getFromStorage = (key: string) => {
 }
 
 export const dataExpired = () => {
-    return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 3000
+    return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 30000
+}
+
+export const updateLastFetch = () => {
+    setToStorage("lastFetch", Date.now());
 }
 
 export const shortText = (text: string, length: number) => {
