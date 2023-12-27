@@ -9,8 +9,8 @@ export const Container = styled.div`
   height: 100vh;
   background-color: rgba(0,0,0,0.5);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   animation: fadein 0.2s;
 
 @keyframes fadein {

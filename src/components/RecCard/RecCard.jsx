@@ -8,9 +8,8 @@ import Button from '@mui/material/Button';
 import usePopupStore from '@/store/popup';
 
 export default function RecCard({ data }) {
-
-    const setId = usePopupStore((state) => state.setId);
-
+    const triggerPopup = usePopupStore((state) => state.triggerPopup);
+    const setPopupContent = usePopupStore((state) => state.setPopupContent);
 
     if (data === undefined || data === null) return <></>;
     const { strMeal, strMealThumb, strCategory, strInstructions, idMeal } = data;
@@ -25,7 +24,14 @@ export default function RecCard({ data }) {
     };
 
     const readMoreHandler = () => {
-        setId(1);
+        triggerPopup(1);
+        setPopupContent({
+            id: idMeal,
+            name: strMeal,
+            img: strMealThumb,
+            category: strCategory,
+            instructions: strInstructions,
+        });
     }
 
     return (
