@@ -10,17 +10,20 @@ import usePopupStore from '../../store/popup';
 import useRecipesStore from '@/store/recipes'
 
 export const Popup02 = () => {
-    const setRecToInject = useRecipesStore((state) => state.setRecToInject);
+    // const setRecToInject = useRecipesStore((state) => state.setRecToInject);
     const triggerPopup = usePopupStore((state) => state.triggerPopup);
+    const setRecipes = useRecipesStore((state) => state.setRecipes);
+    const recipes = useRecipesStore((state) => state.recipes);
+
 
     const { control, handleSubmit, formState: { errors }, setError } = useForm({
         resolver: zodResolver(formSchema),
     });
 
     const onSubmit = (data) => {
-        const idMeal = Math.floor(Math.random() * 1000000);
+        const idMeal = Math.floor(Math.random() * 1000000) + '';
         const newData = { ...data, idMeal };
-        setRecToInject(newData);
+        setRecipes([newData, ...recipes]);
         triggerPopup(0);
     }
 

@@ -8,6 +8,9 @@ const useRecipesStore = create((set) => ({
     favorites: [],
     setFavorites: (favorites) => set(() => ({ favorites })),
 
+    recipes: [],
+    setRecipes: (recipes) => set(() => ({ recipes })),
+
     recToInject: {},
     setRecToInject: (recToInject) => set(() => ({ recToInject })),
 }));

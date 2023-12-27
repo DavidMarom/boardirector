@@ -8,12 +8,12 @@ import { setToStorage, getFromStorage, dataExpired, updateLastFetch } from '@/ut
 import useRecipesStore from '@/store/recipes';
 
 const RecipesPage = () => {
-    const [recipes, setRecipes] = useState<RecipeType[]>([]);
     const [sortedRecipes, setSortedRecipes] = useState<RecipeType[]>([]);
     const [page, setPage] = useState(0);
     const itemsPerPage = 16;
     const selectedCategory = useRecipesStore((state) => state.selectedCategory);
-    // const recToInject = useRecipesStore((state) => state.recToInject);
+    const setRecipes = useRecipesStore((state) => state.setRecipes);
+    const recipes = useRecipesStore((state) => state.recipes);
 
     function updateSortedRecipes(data: Array<RecipeType> | any) {
         setSortedRecipes(data.slice(page * itemsPerPage, (page * itemsPerPage) + itemsPerPage));
@@ -37,7 +37,6 @@ const RecipesPage = () => {
     useEffect(() => { setSortedRecipes(recipes.filter((item: RecipeType) => item?.strCategory === selectedCategory)) }, [selectedCategory]);
     useEffect(() => { updateSortedRecipes(recipes) }, [page]);
     useEffect(() => { updateSortedRecipes(recipes) }, [recipes]);
-    // useEffect(() => { setRecipes([recToInject, ...recipes]) }, [recToInject]);
 
     return (
         <>
