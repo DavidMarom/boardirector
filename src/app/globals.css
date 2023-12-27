@@ -52,10 +52,6 @@ p{
   padding-right: 5%;
 }
 
-.main-title {
-  margin-bottom: 1rem;
-}
-
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -78,26 +74,6 @@ p{
   align-items: flex-start;
 }
 
-.col-start {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 100%;
-}
-
-.row-start {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 100%;
-}
-
-.margin-top-3rem{
-  margin-top: 3rem;
-}
-
 .pagination-bar{
   display: flex;
   flex-direction: row;
@@ -107,7 +83,6 @@ p{
   margin-bottom: 4rem;
   background-color: var(--light-grey);
   color: #ffffff !important;
-
   width: 50%;
   margin-left: auto;
   margin-right: auto;
