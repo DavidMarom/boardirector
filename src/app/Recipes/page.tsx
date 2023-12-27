@@ -18,46 +18,29 @@ const RecipesPage = () => {
         setSortedRecipes(data.slice(page * itemsPerPage, (page * itemsPerPage) + itemsPerPage));
     }
 
-    // useEffect(() => {
-    //     setRecipes(getFromStorage("recipes") || [])
-    //     updateSortedRecipes(getFromStorage("recipes") || []);
-
-    //     if (dataExpired()) {
-    //         getAllRecipes().then((data): void => {
-    //             setToStorage("recipes", data);
-    //             setRecipes(data);
-    //             updateSortedRecipes(data);
-    //             updateLastFetch();
-    //         });
-    //     }
-
-    // }, []
-    // );
-
-
     useEffect(() => {
-        if (getFromStorage("recipes") != null) { setRecipes(getFromStorage("recipes") ?? "") }
-        const lastFetch = getFromStorage('lastFetch');
-        if (lastFetch === null) { setToStorage("lastFetch", Date.now()) }
-        if (dataExpired() || getFromStorage("recipes") === null) {
+        setRecipes(getFromStorage("recipes") || [])
+        updateSortedRecipes(getFromStorage("recipes") || []);
+
+        if (dataExpired()) {
             getAllRecipes().then((data): void => {
                 setToStorage("recipes", data);
-                setToStorage("lastFetch", Date.now());
                 setRecipes(data);
-                setSortedRecipes(data.slice(page * 10, (page * 10) + itemsPerPage));
+                updateSortedRecipes(data);
+                updateLastFetch();
             });
         }
     }, []
     );
 
-
     useEffect(() => { setSortedRecipes(recipes.filter((item: RecipeType) => item?.strCategory === selectedCategory)) }, [selectedCategory]);
     useEffect(() => { updateSortedRecipes(recipes) }, [page]);
+    useEffect(() => { updateSortedRecipes(recipes) }, [recipes]);
 
     return (
         <>
             <div className="grid-container">
-                {sortedRecipes.map((item: RecipeType, index) => <div key={index}><RecCard data={item} /></div>)}
+                {sortedRecipes && sortedRecipes.map((item: RecipeType, index) => <div key={index}><RecCard data={item} /></div>)}
             </div>
 
             <Pagination page={page} setPage={setPage} />
