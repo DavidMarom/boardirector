@@ -10,14 +10,21 @@ export const Popup01 = () => {
 
     return (
         <Popup >
-            <Card01 width='500px' height='99vh' direction='column'>
-                    <button onClick={() => {triggerPopup(0)}}>X</button>
-                    <img src={content.img} alt={content.name} />
-                    <p>{content.name}</p>
-                    <p>{content.category}</p>
+            <Card01 width='600px' height='99vh' direction='column'>
+                <div className='row-between'><button onClick={() => { triggerPopup(0) }}>X</button></div>
+                <div>
+                    <div className='row-between margin-buttom-40'>
+
+                        <div className='image-container'><img src={content.img} alt={content.name} /></div>
+                        <div className='rec-text'>
+                            <h1>{content.name}</h1>
+                            <h2>{content.category}</h2>
+                        </div>
+                    </div>
+                    <h2>Instructions</h2>
                     <p>{content.instructions}</p>
-
-
+                </div>
+                <div />
             </Card01>
         </Popup>
     )

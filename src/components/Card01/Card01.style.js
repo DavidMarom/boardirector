@@ -5,15 +5,11 @@ export const Container = styled.div`
   width: ${({ width }) => width};
   border-radius: ${({ borderRadius }) => borderRadius}px;
   background-color: ${({ background }) => background};
-  padding: 10px;
-  border-radius: 10px;
+  padding: 20px;
+  border-radius: 15px 0px 0px 15px;
   margin-top: 10px;
   display: flex;
   flex-direction: ${({ direction }) => direction};
   justify-content: space-between;
-  
-  /* justify-content: ${({ justifyContent }) => justifyContent}; */
   overflow: hidden;
-
 `;
-

@@ -2,6 +2,7 @@
 import React from 'react'
 import PropTypes from "prop-types"
 import { Container } from "./Card01.style"
+import { StyleSheetManager } from 'styled-components';
 
 export default function Card01({
     width = '100%',
@@ -9,19 +10,21 @@ export default function Card01({
     background = '#ffffff',
     children,
     direction = 'row',
-    justifyContent='space-between',
+    justifyContent = 'space-between',
 }) {
 
     return (
-        <Container
-            width={width}
-            height={height}
-            background={background}
-            direction={direction}
-            justifyContent={justifyContent}
-        >
-            {children}
-        </Container>
+        <StyleSheetManager shouldForwardProp={(prop) => prop !== 'justifyContent'}>
+            <Container
+                width={width}
+                height={height}
+                background={background}
+                direction={direction}
+                justifyContent={justifyContent}
+            >
+                {children}
+            </Container>
+        </StyleSheetManager>
     )
 }
 
