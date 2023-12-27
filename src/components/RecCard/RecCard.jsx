@@ -5,8 +5,13 @@ import PropTypes from "prop-types"
 import { Fav } from '@/components';
 import { shortText } from '@/utils/utils';
 import Button from '@mui/material/Button';
+import usePopupStore from '@/store/popup';
 
 export default function RecCard({ data }) {
+
+    const setId = usePopupStore((state) => state.setId);
+
+
     if (data === undefined || data === null) return <></>;
     const { strMeal, strMealThumb, strCategory, strInstructions, idMeal } = data;
     const style = {
@@ -18,6 +23,10 @@ export default function RecCard({ data }) {
         height: '.9rem',
         width: 'fit-content',
     };
+
+    const readMoreHandler = () => {
+        setId(1);
+    }
 
     return (
         <Container>
@@ -31,7 +40,7 @@ export default function RecCard({ data }) {
                     <h4>{strCategory}</h4>
                 </div>
                 <TextContainer>{shortText(strInstructions, 100)}</TextContainer>
-                <Button variant="contained" style={style}>Read more</Button>
+                <Button onClick={readMoreHandler} variant="contained" style={style}>Read more</Button>
             </InfoContainer>
         </Container>
     )

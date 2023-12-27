@@ -1,0 +1,16 @@
+'use client'
+
+import React from 'react'
+import usePopupStore from '../store/popup';
+import { Popup01 } from '../components/popups/Popup01';
+
+
+export const PopupProvider = () => {
+    const popId = usePopupStore((state) => state.popId);
+
+    return (
+        <>
+            {(popId === 1) && <Popup01 />}
+        </>
+    )
+}
