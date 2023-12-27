@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { RecCard } from '@/components';
 import { getAllRecipes } from '@/services/recipes';
-import { Recipe } from '@/utils/types';
+import { RecipeType } from '@/utils/types';
 import { setToStorage, getFromStorage, dataExpired } from '@/utils/utils';
 import useRecipesStore from '@/store/recipes';
 
@@ -29,13 +29,13 @@ const RecipesPage = () => {
     }, []
     );
 
-    useEffect(() => { setSortedRecipes(recipes.filter((item: Recipe) => item?.strCategory === selectedCategory)) }, [selectedCategory]);
+    useEffect(() => { setSortedRecipes(recipes.filter((item: RecipeType) => item?.strCategory === selectedCategory)) }, [selectedCategory]);
     useEffect(() => { setSortedRecipes(recipes.slice(page * 10, (page * 10) + itemsPerPage)) }, [page]);
 
     return (
         <>
             <div className="grid-container">
-                {sortedRecipes && sortedRecipes.map((item: Recipe, index) => <div key={index}><RecCard data={item} /></div>)}
+                {sortedRecipes && sortedRecipes.map((item: RecipeType, index) => <div key={index}><RecCard data={item} /></div>)}
             </div>
 
             <div className='pagination-bar'>

@@ -53,7 +53,7 @@ export const RecipeSchema = z.object({
     dateModified: z.string(),
 });
 
-export type Recipe = z.infer<typeof RecipeSchema>;
+export type RecipeType = z.infer<typeof RecipeSchema>;
 
 export const CategorySchema = z.object({
     idCategory: z.string(),
