@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { RecCard } from '@/components';
+import { RecCard, Pagination } from '@/components';
 import { getAllRecipes } from '@/services/recipes';
 import { RecipeType } from '@/utils/types';
 import { setToStorage, getFromStorage, dataExpired } from '@/utils/utils';
@@ -10,7 +10,7 @@ import useRecipesStore from '@/store/recipes';
 const RecipesPage = () => {
     const [recipes, setRecipes] = useState([]);
     const [sortedRecipes, setSortedRecipes] = useState([]);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(0);
     const itemsPerPage = 16;
     const selectedCategory = useRecipesStore((state) => state.selectedCategory);
 
@@ -38,11 +38,7 @@ const RecipesPage = () => {
                 {sortedRecipes && sortedRecipes.map((item: RecipeType, index) => <div key={index}><RecCard data={item} /></div>)}
             </div>
 
-            <div className='pagination-bar'>
-                <button onClick={() => { if (page > 0) setPage(page - 1) }}>← Previous</button>
-                <h2>Page {page + 1}</h2>
-                <button onClick={() => { if (page < 30) { setPage(page + 1) } }}>Next →</button>
-            </div >
+            <Pagination page={page} setPage={setPage} />
         </>
     );
 }

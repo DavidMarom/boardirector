@@ -2,11 +2,10 @@
 import React from 'react'
 import { Container } from "./Pagination.style"
 import PropTypes from "prop-types"
-import { Fav } from '@/components';
-import { shortText } from '@/utils/utils';
-import Button from '@mui/material/Button';
-
-export default function Pagination() {
+export default function Pagination({
+    page,
+    setPage
+}) {
 
     return (
         <Container>
@@ -17,5 +16,7 @@ export default function Pagination() {
     )
 }
 
-RecCard.propTypes = {
+Pagination.propTypes = {
+    page: PropTypes.number.isRequired,
+    setPage: PropTypes.func.isRequired,
 }
