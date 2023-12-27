@@ -8,7 +8,8 @@ export default function Card01({
     height = 140,
     background = '#ffffff',
     children,
-    direction = 'row'
+    direction = 'row',
+    justifyContent='space-between',
 }) {
 
     return (
@@ -17,6 +18,7 @@ export default function Card01({
             height={height}
             background={background}
             direction={direction}
+            justifyContent={justifyContent}
         >
             {children}
         </Container>
@@ -28,5 +30,6 @@ Card01.propTypes = {
     width: PropTypes.string,
     height: PropTypes.string,
     children: PropTypes.node,
-    direction: PropTypes.string
+    direction: PropTypes.string,
+    justifyContent: PropTypes.string,
 }

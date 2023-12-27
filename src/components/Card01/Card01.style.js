@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-const DARK = '#555555';
-const LIGHT = '#eeeeee';
-
 export const Container = styled.div`
   height: ${({ height }) => height};
   width: ${({ width }) => width};
@@ -14,6 +11,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: ${({ direction }) => direction};
   justify-content: space-between;
+  
+  /* justify-content: ${({ justifyContent }) => justifyContent}; */
   overflow: hidden;
 
 `;
