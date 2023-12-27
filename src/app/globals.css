@@ -94,3 +94,8 @@ p {
 .margin-buttom-40{
   margin-bottom: 40px;
 }
+
+.error {
+  color: red;
+  font-size: 0.6rem;
+}

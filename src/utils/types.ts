@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const RecipeSchema = z.object({
+const RecipeSchema = z.object({
     idMeal: z.string(),
     strMeal: z.string(),
     strCategory: z.string(),
@@ -55,7 +55,7 @@ export const RecipeSchema = z.object({
 
 export type RecipeType = z.infer<typeof RecipeSchema>;
 
-export const CategorySchema = z.object({
+const CategorySchema = z.object({
     idCategory: z.string(),
     strCategory: z.string(),
     strCategoryThumb: z.string(),
@@ -63,3 +63,11 @@ export const CategorySchema = z.object({
 });
 
 export type CategoryType = z.infer<typeof CategorySchema>;
+
+export const formSchema = z.object({
+    strMeal: z.string().min(2, { message: 'Recipe name must be at least 2 characters long' }),
+    strCategory: z.string().min(2, { message: 'Category name must be at least 2 characters long' }),
+    strInstructions: z.string().min(5, { message: 'Instructions must be at least 5 characters long' }),
+    strMealThumb: z.string().url({ message: 'Image URL is not valid' }),
+});
+
