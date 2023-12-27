@@ -11,8 +11,7 @@ export default function RootLayout({ children }: {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <PopupProvider />
-
+        <PopupProvider />
         <div className="layout">
           <Header />
           {children}

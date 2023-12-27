@@ -11,7 +11,7 @@ export const Popup01 = () => {
 
     return (
         <Popup >
-            <Card01 width='600px' height='99vh' direction='column'>
+            <Card01 width='600px' height='100vh' direction='column'>
                 <div className='row-between'><button onClick={() => { triggerPopup(0) }}>X</button></div>
                 <div>
                     <div className='row-between margin-buttom-40'>
