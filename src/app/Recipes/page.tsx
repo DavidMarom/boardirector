@@ -9,32 +9,33 @@ import useRecipesStore from '@/store/recipes';
 
 const RecipesPage = () => {
     const [recipes, setRecipes] = useState([]);
-    const [sortedRecipes, setSortedRecipes] = useState([]);
+    const [sortedRecipes, setSortedRecipes] = useState([])
     const [page, setPage] = useState(0);
     const itemsPerPage = 16;
     const selectedCategory = useRecipesStore((state) => state.selectedCategory);
 
-    useEffect(() => {
-        if (getFromStorage("recipes") != null) {
-            setRecipes(getFromStorage("recipes") ?? "")
-            setSortedRecipes(getFromStorage("recipes").slice(page * 10, (page * 10) + itemsPerPage));
-        }
-        const lastFetch = getFromStorage('lastFetch');
-        if (lastFetch === null) { updateLastFetch() }
+    function updateSortedRecipes(data: Array<RecipeType> | any) {
+        setSortedRecipes(data.slice(page * itemsPerPage, (page * itemsPerPage) + itemsPerPage));
+    }
 
-        if (dataExpired() || getFromStorage("recipes") === null) {
+    useEffect(() => {
+        setRecipes(getFromStorage("recipes") || [])
+        updateSortedRecipes(getFromStorage("recipes") || []);
+
+        if (dataExpired()) {
             getAllRecipes().then((data): void => {
                 setToStorage("recipes", data);
-                updateLastFetch();
                 setRecipes(data);
-                setSortedRecipes(data.slice(page * 10, (page * 10) + itemsPerPage));
+                updateSortedRecipes(data);
+                updateLastFetch();
             });
         }
+
     }, []
     );
 
     useEffect(() => { setSortedRecipes(recipes.filter((item: RecipeType) => item?.strCategory === selectedCategory)) }, [selectedCategory]);
-    useEffect(() => { setSortedRecipes(recipes.slice(page * 10, (page * 10) + itemsPerPage)) }, [page]);
+    useEffect(() => { updateSortedRecipes(recipes) }, [page]);
 
     return (
         <>

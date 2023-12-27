@@ -3,16 +3,23 @@ export const setToStorage = (key: string, value: any) => {
 }
 
 export const getFromStorage = (key: string) => {
-    try {
-        return JSON.parse(localStorage.getItem(key) as string);
-    }
-    catch {
-        return null;
-    }
+    try { return JSON.parse(localStorage.getItem(key) as string) }
+    catch { return null }
 }
 
 export const dataExpired = () => {
-    return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 30000
+    if (!getFromStorage('lastFetch')) {
+        console.log("No data in storage");
+        return true;
+
+    }
+    if (Date.now() - parseInt(getFromStorage('lastFetch')) > 600000) {
+        console.log("Data expired");
+        return true;
+    }
+    // return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 60000
+    console.log("Data not expired");
+    return false;
 }
 
 export const updateLastFetch = () => {

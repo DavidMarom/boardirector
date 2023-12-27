@@ -1,6 +1,7 @@
 import http from '@/services/http';
 
 export function getAllRecipes() {
+    console.log("getAllRecipes - Fetching data");
     const all = Promise.all([
         http.get(`/search.php?f=a`),
         http.get(`/search.php?f=b`),
