@@ -20,11 +20,8 @@ export default function Fav({ data }) {
     }
 
     useEffect(() => {
-        if (favorites.includes(data.idMeal)) {
-            setIsFavorite(true)
-        } else {
-            setIsFavorite(false)
-        }
+        if (favorites.includes(data.idMeal)) { setIsFavorite(true) }
+        else { setIsFavorite(false) }
     }, [])
 
     return (
