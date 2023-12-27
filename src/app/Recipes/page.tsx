@@ -8,8 +8,8 @@ import { setToStorage, getFromStorage, dataExpired, updateLastFetch } from '@/ut
 import useRecipesStore from '@/store/recipes';
 
 const RecipesPage = () => {
-    const [recipes, setRecipes] = useState([]);
-    const [sortedRecipes, setSortedRecipes] = useState([])
+    const [recipes, setRecipes] = useState<RecipeType[]>([]);
+    const [sortedRecipes, setSortedRecipes] = useState<RecipeType[]>([]);
     const [page, setPage] = useState(0);
     const itemsPerPage = 16;
     const selectedCategory = useRecipesStore((state) => state.selectedCategory);
@@ -42,7 +42,6 @@ const RecipesPage = () => {
             <div className="grid-container">
                 {sortedRecipes && sortedRecipes.map((item: RecipeType, index) => <div key={index}><RecCard data={item} /></div>)}
             </div>
-
             <Pagination page={page} setPage={setPage} />
         </>
     );

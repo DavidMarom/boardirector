@@ -7,20 +7,7 @@ export const getFromStorage = (key: string) => {
     catch { return null }
 }
 
-export const dataExpired = () => {
-    if (!getFromStorage('lastFetch')) {
-        console.log("No data in storage");
-        return true;
-
-    }
-    if (Date.now() - parseInt(getFromStorage('lastFetch')) > 600000) {
-        console.log("Data expired");
-        return true;
-    }
-    // return Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 60000
-    console.log("Data not expired");
-    return false;
-}
+export const dataExpired = () => Date.now() - parseInt(getFromStorage('lastFetch') ?? "") > 60000 || !getFromStorage('lastFetch');
 
 export const updateLastFetch = () => {
     setToStorage("lastFetch", Date.now());
